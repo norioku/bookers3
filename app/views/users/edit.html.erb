@@ -6,8 +6,8 @@
 <% if @user.errors.any? %>
 <h3>errorが<%= @user.errors.count %>件ないです</h3>
   <ul>
-   <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+   <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <% end %>
   </ul>
  <% end %>

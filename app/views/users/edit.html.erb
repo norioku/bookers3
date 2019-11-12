@@ -1,0 +1,29 @@
+<div class="mx-auto" style="width: 200px;">
+
+<h2 class="form-header-title">User info</h2>
+<%= form_for(@user) do |f| %>
+
+<% if @user.errors.any? %>
+<h3>errorが<%= @user.errors.count %>件あります</h3>
+  <ul>
+   <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+ <% end %>
+
+ <%= attachment_image_tag @user, :profile_image, size: "100x100",  class: "img-circle pull-left profile-thumb", fallback: "no_images.jpg"%>
+     <label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+     <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+
+     <%= f.label :Name %><br />
+          <%= f.text_area :name, autofocus: true %>
+
+<%= f.label :introduction %><br />
+    <%= f.text_area :introduction, autofocus: true %>
+
+  <%= f.submit "Update user" %>
+<% end %>
+</div>
+
+
